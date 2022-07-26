@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getPosts } from '../utils/mdx-utils';
 
+import { MDXRemote } from 'next-mdx-remote';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Layout, { GradientBackground } from '../components/Layout';
@@ -20,10 +21,10 @@ export default function Index({ posts, globalData }) {
         </h1>
         <ul className="w-full">
           {posts.map((post) => (
-            <li
-              key={post.filePath}
-              className="md:first:rounded-t-lg md:last:rounded-b-lg backdrop-blur-lg bg-white dark:bg-black dark:bg-opacity-30 bg-opacity-10 hover:bg-opacity-20 dark:hover:bg-opacity-50 transition border border-gray-800 dark:border-white border-opacity-10 dark:border-opacity-10 border-b-0 last:border-b hover:border-b hovered-sibling:border-t-0"
-            >
+            // <li
+            //   key={post.filePath}
+            //   className="md:first:rounded-t-lg md:last:rounded-b-lg backdrop-blur-lg bg-white dark:bg-black dark:bg-opacity-30 bg-opacity-10 hover:bg-opacity-20 dark:hover:bg-opacity-50 transition border border-gray-800 dark:border-white border-opacity-10 dark:border-opacity-10 border-b-0 last:border-b hover:border-b hovered-sibling:border-t-0"
+            // >
               <Link
                 as={`/posts/${post.filePath.replace(/\.mdx?$/, '')}`}
                 href={`/posts/[slug]`}
@@ -43,7 +44,7 @@ export default function Index({ posts, globalData }) {
                   <ArrowIcon className="mt-4" />
                 </a>
               </Link>
-            </li>
+            // </li>
           ))}
         </ul>
       </main>
